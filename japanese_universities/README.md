@@ -57,7 +57,7 @@
   - Categorical columns (`has_remote`, `has_grad`) converted to binary features using one-hot encoding (`drop_first=True`).
 
 - **Train/Test Split:**
-  - Split dataset into **90% training / 10% testing**.
+  - Split dataset into **80% training / 20% testing**.
   - `stratify=y_encoded` ensures class proportions are preserved.
 
 - **Feature Scaling:**
@@ -101,19 +101,22 @@
 - **Early stopping:** Enabled (patience = 5)  
 - **Training progress (Validation Loss):**  
     ```
-    Epoch 1/2000  | val loss: 1.9096
-    Epoch 10/2000 | val loss: 0.9492
-    Epoch 20/2000 | val loss: 0.5991
-    Epoch 30/2000 | val loss: 0.4034
-    Epoch 40/2000 | val loss: 0.2945
-    Epoch 50/2000 | val loss: 0.2221
-    Epoch 60/2000 | val loss: 0.1814
-    Epoch 70/2000 | val loss: 0.1547
-    Epoch 80/2000 | val loss: 0.1343
-    Epoch 90/2000 | val loss: 0.1177
-    Epoch 100/2000| val loss: 0.1077
-    Epoch 110/2000| val loss: 0.0945
-    Stop at epoch 119
+    Epoch 1/2000 | val loss: 1.9183
+    Epoch 10/2000 | val loss: 1.0998
+    Epoch 20/2000 | val loss: 0.6902
+    Epoch 30/2000 | val loss: 0.4764
+    Epoch 40/2000 | val loss: 0.3494
+    Epoch 50/2000 | val loss: 0.2755
+    Epoch 60/2000 | val loss: 0.2192
+    Epoch 70/2000 | val loss: 0.1853
+    Epoch 80/2000 | val loss: 0.1630
+    Epoch 90/2000 | val loss: 0.1462
+    Epoch 100/2000 | val loss: 0.1301
+    Epoch 110/2000 | val loss: 0.1149
+    Epoch 120/2000 | val loss: 0.1058
+    Epoch 130/2000 | val loss: 0.0979
+    Epoch 140/2000 | val loss: 0.0992
+    Stop at epoch 149
     ```
 
 ---
@@ -128,43 +131,31 @@
 - **Classification Report:**
     ```
                precision    recall  f1-score   support
-    A              1.00      1.00      1.00         2
-    B              1.00      1.00      1.00         4
-    C              1.00      1.00      1.00        12
-    D              1.00      1.00      1.00         9
-    E              1.00      1.00      1.00        15
-    F              1.00      1.00      1.00        32
-    S              1.00      1.00      1.00         1
+           A       0.80      0.80      0.80         5
+           B       0.88      0.88      0.88         8
+           C       1.00      0.96      0.98        24
+           D       0.94      0.94      0.94        18
+           E       0.94      1.00      0.97        30
+           F       1.00      0.98      0.99        63
+           S       1.00      1.00      1.00         2
 
-    accuracy                           1.00        75
-    macro avg      1.00      1.00      1.00        75
-    weighted avg   1.00      1.00      1.00        75
+    accuracy                           0.97       150
+   macro avg       0.94      0.94      0.94       150
+  weighted avg       0.97      0.97      0.97       150
     ```
 
 - **Accuracy per Class:**
     ```
-    A    100.0%
-    B    100.0%
-    C    100.0%
-    D    100.0%
-    E    100.0%
-    F    100.0%
-    S    100.0%
+    A     80 %
+    B     87.5 %
+    C     95.83 %
+    D     94.44 %
+    E    100 %
+    F     98.41 %
+    S    100 %
     ```
 
 - **Example Predictions:**
-    - Model perfectly matched all test samples (True vs Predicted were identical).
-
-- **Training Visualization (Validation Loss):**
-    ```
-    Epoch 1   | val loss: 1.9096
-    Epoch 10  | val loss: 0.9492
-    Epoch 50  | val loss: 0.2221
-    Epoch 100 | val loss: 0.1077
-    Epoch 110 | val loss: 0.0945
-    Stop at epoch 119
-    ```
-
- 
+    - Model perfectly matched all test samples (True vs Predicted were almost identical).
 
 ---
