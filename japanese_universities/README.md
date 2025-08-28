@@ -140,19 +140,19 @@
            S       1.00      1.00      1.00         2
 
     accuracy                           0.97       150
-   macro avg       0.94      0.94      0.94       150
+   macro avg        0.94      0.94      0.94       150
   weighted avg     0.97      0.97      0.97       150
     ```
 
 - **Accuracy per Class:**
     ```
-    A     80 %
-    B     87.5 %
+    A     80    %
+    B     87.5  %
     C     95.83 %
     D     94.44 %
-    E     100 %
+    E     100   %
     F     98.41 %
-    S     100 %
+    S     100   %
     ```
 
 - **Example Predictions:**
