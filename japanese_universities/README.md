@@ -36,8 +36,38 @@
 | `difficulty_SD` | The standard deviation measurement of universities' difficulty. |
 | `difficulty_rank` | The rank of universities' difficulty. The highest to lowest ranking order is: S, A, B, C, D, E, F. |
 
+## 🧹 Data Preprocessing & Preparation
 
-- **Preprocessing:** Any steps you applied to clean or transform the data.  
+- **Missing Values:**
+  - Checked percentage of missing values per column.
+  - Removed rows with missing values in:
+    - `difficulty_rank` (target)
+    - `review_rating`
+    - `review_count`
+
+- **Feature Selection:**
+  - Selected the most relevant features:
+    ```
+    ['faculty_count', 'department_count', 'has_remote', 'has_grad', 
+     'review_rating', 'review_count', 'difficulty_SD', 'difficulty_rank']
+    ```
+
+- **Encoding:**
+  - Target column `difficulty_rank` encoded using `LabelEncoder`.
+  - Categorical columns (`has_remote`, `has_grad`) converted to binary features using one-hot encoding (`drop_first=True`).
+
+- **Train/Test Split:**
+  - Split dataset into **90% training / 10% testing**.
+  - `stratify=y_encoded` ensures class proportions are preserved.
+
+- **Feature Scaling:**
+  - Standardized features using `StandardScaler` (mean = 0, std = 1).
+
+- **Tensor Conversion (PyTorch):**
+  - Converted `X_train`, `X_test` to `torch.float32`.
+  - Converted `y_train`, `y_test` to `torch.long`.
+  - Ready for input into the PyTorch model.
+
 
 ---
 
