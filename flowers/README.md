@@ -77,9 +77,11 @@ The dataset is organized into **three subfolders**:
 ## 📈 Training Process
 Example log:
     ```
+    
     Epoch [1/10], Loss: 1.2345, Accuracy: 62.50%
+    
     Epoch [2/10], Loss: 0.8976, Accuracy: 74.38%
-    ...
+    
     Epoch [10/10], Loss: 0.2103, Accuracy: 98.12%
     ```
 ---
