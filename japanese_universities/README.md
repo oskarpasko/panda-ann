@@ -96,6 +96,84 @@
 
 ---
 
+## 🔬 Hyperparameter Tuning / Experiments
+
+| Configuration | Final Epochs | Hidden Layers | Activation func per Layer | Neurons per Layer | Learning Rate | Accuracy | 
+| ------------- | ------------ | ------------- | ------------------------- | ----------------- | ------------- | -------- | 
+| Config 1.1      | 81          | 2             | [LogSigmoid, LogSigmoid ] | [32, 16]           | 0.001         | 95.33%      | 
+| Config 1.2      | 93          | 2             | [LogSigmoid, LogSigmoid ] | [32, 16]           | 0.001         | 96.67%      | 
+| Config 1.3      | 85          | 2             | [LogSigmoid, LogSigmoid ] | [32, 16]           | 0.001         | 94.67%      | 
+| Config 1.4      | 81          | 2             | [LogSigmoid, LogSigmoid ] | [32, 16]           | 0.001         | 96.67%      | 
+| Config 1.5      | 62          | 2             | [LogSigmoid, LogSigmoid ] | [32, 16]           | 0.001         | 94.00%      | 
+| Config 2.1      | 56          | 2             | [ReLU, ReLU ] | [32, 16]           | 0.001         | 93.33%      | 
+| Config 2.2      | 57          | 2             | [ReLU, ReLU ] | [32, 16]           | 0.001         | 94.67%      | 
+| Config 2.3      | 94          | 2             | [ReLU, ReLU ] | [32, 16]           | 0.001         | 97.33%      | 
+| Config 2.4      | 78          | 2             | [ReLU, ReLU ] | [32, 16]           | 0.001         | 96.00%      | 
+| Config 2.5      | 73          | 2             | [ReLU, ReLU ] | [32, 16]           | 0.001         | 94.00%      | 
+| Config 3.1      | 105          | 2             | [ReLU, ReLU ] | [16, 8]           | 0.001         | 95.33%      | 
+| Config 3.2      | 96          | 2             | [ReLU, ReLU ] | [16, 8]           | 0.001         | 94.00%      | 
+| Config 3.3      | 102          | 2             | [ReLU, ReLU ] | [16, 8]           | 0.001         | 95.33%      | 
+| Config 3.4      | 144          | 2             | [ReLU, ReLU ] | [16, 8]           | 0.001         | 96.00%      | 
+| Config 3.5      | 102          | 2             | [ReLU, ReLU ] | [16, 8]           | 0.001         | 95.33%      | 
+| Config 4.1      | 102          | 2             | [LogSigmoid, LogSigmoid ] | [16, 8]           | 0.001         | 95.33%      | 
+| Config 4.2      | 87          | 2             | [LogSigmoid, LogSigmoid ] | [16, 8]           | 0.001         | 95.33%      | 
+| Config 4.3      | 117          | 2             | [LogSigmoid, LogSigmoid ] | [16, 8]           | 0.001         | 96.67%      | 
+| Config 4.4      | 113          | 2             | [LogSigmoid, LogSigmoid ] | [16, 8]           | 0.001         | 94.67%      | 
+| Config 4.5      | 112          | 2             | [LogSigmoid, LogSigmoid ] | [16, 8]           | 0.001         | 96.00%      | 
+
+```
+
+Accuracy per class [Config 3]:
+A     80.000000
+B    100.000000
+C    100.000000
+D     94.444444
+E    100.000000
+F     98.412698
+S    100.000000
+
+
+```
+
+```
+
+Accuracy per class [Config 4]:
+A    100.000000
+B     75.000000
+C    100.000000
+D     83.333333
+E    100.000000
+F     98.412698
+S    100.000000
+
+```
+
+- **Best overall accuracy:**  
+  - The highest results were achieved with **ReLU + larger layers [32,16]** (Config 2.3), reaching **97.33% Accuracy**.  
+  - LogSigmoid performed stably in smaller layers ([16,8]), but did not surpass the best ReLU results.
+
+- **Impact of architecture:**  
+  - Increasing the number of neurons in the first hidden layer improves the network’s ability to capture complex patterns.  
+  - Number of epochs is not the most critical factor – the **combination of neurons and activation functions** is more important.  
+
+- **Per-class accuracy analysis:**  
+  - The model performs very well for most classes (A, C, E, F, S – Accuracy ~98–100%).  
+  - Classes B and D show lower performance (75–87%), indicating **harder-to-distinguish patterns or lower representation in the dataset**.  
+  - High overall Accuracy can mask issues with smaller or more difficult classes.
+
+- **Recommendations for further experiments:**  
+  - Apply **class weighting** in the loss function to improve accuracy for underrepresented classes.  
+  - Consider increasing the number of neurons or layers for challenging classes.  
+  - Experiment with **mixed activation functions** (e.g., ReLU + LogSigmoid) for better generalization.  
+  - Monitor **Accuracy per class / F1-score** instead of only overall accuracy to get a more complete view of model performance.
+
+- **Overall conclusion:**  
+  - The MLP network can effectively classify Japanese university difficulty levels based on selected features, achieving high accuracy, but per-class analysis reveals areas that could benefit from further optimization.
+
+
+
+---
+
 ## 📈 Training & Validation
 - **Data split:** 80% training / 20% testing (no separate validation set)  
 - **Early stopping:** Enabled (patience = 5)  
