@@ -11,7 +11,9 @@ Each folder contains an individual project with datasets, a notebook, and a desc
 - [Project 1 – Japanese Universities](./japanese_universities/README.md)  
   *This project implements a Deep Learning model in PyTorch designed to classify schools into difficulty tiers (S, A, B, C, D, E, F) based on their characteristics and performance data.*  
 - [Project 2 – Flowers](./flowers/README.md)  
-  *The goal of this project is to classify flower images into five categories using a Convolutional Neural Network (CNN) implemented in PyTorch. The model learns visual patterns such as color, shape, and texture to correctly identify the flower species.*  
+  *The goal of this project is to classify flower images into five categories using a Convolutional Neural Network (CNN) implemented in PyTorch. The model learns visual patterns such as color, shape, and texture to correctly identify the flower species.*
+- [Project 3 – Perceptron](./perceptron/README.md)  
+  *The objective of this project is to **implement and analyze a perceptron-based classifier** using PyTorch and Object-Oriented Programming (OOP).*  
 
 ## 🚀 How to use
 1. Go to the chosen project folder.  
