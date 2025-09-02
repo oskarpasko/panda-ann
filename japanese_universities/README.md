@@ -147,28 +147,39 @@ F     98.412698
 S    100.000000
 
 ```
+### Best Overall Result
 
-- **Best overall accuracy:**  
-  - The highest results were achieved with **ReLU + larger layers [32,16]** (Config 2.3), reaching **97.33% Accuracy**.  
-  - LogSigmoid performed stably in smaller layers ([16,8]), but did not surpass the best ReLU results.
+The highest accuracy was achieved with **ReLU and larger layers [32,16] (Config 2.3)** – **97.33%**.
 
-- **Impact of architecture:**  
-  - Increasing the number of neurons in the first hidden layer improves the network’s ability to capture complex patterns.  
-  - Number of epochs is not the most critical factor – the **combination of neurons and activation functions** is more important.  
+**LogSigmoid** in smaller layers ([16,8]) worked stably but did not surpass the ReLU result.
 
-- **Per-class accuracy analysis:**  
-  - The model performs very well for most classes (A, C, E, F, S – Accuracy ~98–100%).  
-  - Classes B and D show lower performance (75–87%), indicating **harder-to-distinguish patterns or lower representation in the dataset**.  
-  - High overall Accuracy can mask issues with smaller or more difficult classes.
+### What Influences the Result
 
-- **Recommendations for further experiments:**  
-  - Apply **class weighting** in the loss function to improve accuracy for underrepresented classes.  
-  - Consider increasing the number of neurons or layers for challenging classes.  
-  - Experiment with **mixed activation functions** (e.g., ReLU + LogSigmoid) for better generalization.  
-  - Monitor **Accuracy per class / F1-score** instead of only overall accuracy to get a more complete view of model performance.
+Having more neurons in the first layer allows the network to better capture complex patterns in the data.
 
-- **Overall conclusion:**  
-  - The MLP network can effectively classify Japanese university difficulty levels based on selected features, achieving high accuracy, but per-class analysis reveals areas that could benefit from further optimization.
+The number of epochs is not the most critical factor – the **layer size and activation functions** are more important.
+
+### Per-Class Accuracy
+
+The network performs very well for most classes (A, C, E, F, S – ~98–100%).
+
+However, classes B and D show lower performance (75–87%), suggesting they are harder to distinguish or have fewer examples in the dataset.
+
+It’s worth noting that high overall accuracy can sometimes mask issues with the more difficult classes.
+
+### Ideas for Further Experiments
+
+- Apply **class weighting** in the loss function to improve results for underrepresented classes.  
+- Increase the number of neurons or layers for the more challenging classes.  
+- Experiment with **mixed activation functions** (e.g., ReLU in one layer, LogSigmoid in another) to improve generalization.  
+- Instead of looking only at overall accuracy, monitor **Accuracy/F1-score per class** for a more complete view of model performance.
+
+### Conclusion
+
+The MLP network performs quite well in classifying the difficulty level of Japanese universities based on the available features.  
+
+However, the per-class analysis shows there are areas for improvement, especially for the less obvious or more challenging cases.
+
 
 
 
