@@ -178,10 +178,14 @@ It’s worth noting that high overall accuracy can sometimes mask issues with th
 
 The MLP network performs quite well in classifying the difficulty level of Japanese universities based on the available features.  
 
-However, the per-class analysis shows there are areas for improvement, especially for the less obvious or more challenging cases.
+After evaluating different configurations, I decided to use the following parameters for the final setup:
 
+- **Epochs:** 2000 (with early stopping, patience = 5)  
+- **Learning rate:** 0.001  
+- **Activation Functions per Layer:** [ReLU, ReLU] 
+- **Hidden Layers per Layer:** [16, 8] 
 
-
+This setup uses the tested layer sizes and activation functions that performed best during my experiments, providing a balance between high accuracy and stable training.
 
 ---
 
