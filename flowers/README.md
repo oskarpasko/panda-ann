@@ -1,4 +1,4 @@
-# 📌 Project: [Japanese Univiersities]
+# 📌 Project: [Flowers]
 
 ## 🎯 Goal
 *The goal of this project is to classify flower images into five categories using a Convolutional Neural Network (CNN) implemented in PyTorch. The model learns visual patterns such as color, shape, and texture to correctly identify the flower species.*
